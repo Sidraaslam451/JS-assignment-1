@@ -1,14 +1,250 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Math & Calculators Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Theme Toggle -->
+    <button id="themeBtn" class="theme-btn" onclick="toggleTheme()">
+      🌙 Dark Mode
+    </button>
 
+    <!-- Header -->
+    <header>
+      <h1>JavaScript Math & Calculators Dashboard</h1>
+      <p>Interactive Chapter 5 Assignment with Modern UI</p>
+    </header>
 
-<script src="index.js"></script>
+    <!-- Progress Section -->
+
+    <section class="progress-card">
+      <h3>
+        Completed Tasks:
+        <span id="counter">0</span>/12
+      </h3>
+
+      <div class="progress-bar">
+        <div id="fill"></div>
+      </div>
+    </section>
+
+    <!-- Introduction -->
+
+    <section class="intro-card">
+      <h2>📚 Chapter 5 - Math Expressions Assignment</h2>
+
+      <p>
+        This dashboard transforms traditional JavaScript assignments into an
+        interactive learning experience. Each task displays the original
+        question, logic used, and final output.
+      </p>
+    </section>
+
+    <!-- Statistics -->
+
+    <section class="stats-card">
+      <div class="stat-box">
+        <h3>12</h3>
+        <p>Assignments</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>JS</h3>
+        <p>Fundamentals</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>100%</h3>
+        <p>Interactive</p>
+      </div>
+    </section>
+
+    <!-- Cards Container -->
+
+    <div class="card">
+      <span class="badge"> Q1 - Q2 </span>
+
+      <h2>➕ Arithmetic Operations</h2>
+
+      <p>
+        Perform Addition, Subtraction, Multiplication, Division and Modulus.
+      </p>
+
+      <button onclick="showQ1()">Run Assignment</button>
+    </div>
+
+    <div class="card">
+      <span class="badge"> Q3 </span>
+
+      <h2>🔢 Variable Operations</h2>
+
+      <p>
+        Demonstrates variable declaration, increment, decrement and remainder.
+      </p>
+
+      <button onclick="showQ3()">Run Assignment</button>
+    </div>
+
+    <div class="card">
+      <span class="badge"> Q4 </span>
+
+      <h2>🎫 Movie Tickets</h2>
+
+      <p>Calculate total cost of purchasing five movie tickets.</p>
+
+      <button onclick="showQ4()">Run Assignment</button>
+    </div>
+
+    <div class="card">
+      <span class="badge"> Q5 </span>
+
+      <h2>📊 Multiplication Table</h2>
+
+      <p>Generate multiplication table of any number.</p>
+
+      <button onclick="openModal()">Generate Table</button>
+    </div>
+
+    <div class="card">
+      <span class="badge"> Q6 </span>
+
+      <h2>🌡 Temperature Converter</h2>
+
+      <p>Convert Celsius to Fahrenheit and Fahrenheit to Celsius.</p>
+
+      <button onclick="showQ6()">Run Assignment</button>
+    </div>
+
+    <div class="card">
+      <span class="badge"> Q7 </span>
+
+      <h2>🛒 Shopping Cart</h2>
+
+      <p>Calculate total order amount including shipping charges.</p>
+
+      <button onclick="showQ7()">Run Assignment</button>
+    </div>
+
+    <div class="card">
+      <span class="badge"> Q8 </span>
+
+      <h2>📈 Marks Sheet</h2>
+
+      <p>Calculate percentage from total and obtained marks.</p>
+
+      <button onclick="showQ8()">Run Assignment</button>
+    </div>
+
+    <div class="card">
+      <span class="badge"> Q9 </span>
+
+      <h2>💱 Currency Converter</h2>
+
+      <p>Convert Dollars and Riyals into Pakistani Rupees.</p>
+
+      <button onclick="showQ9()">Run Assignment</button>
+    </div>
+    <div class="card">
+      <span class="badge"> Q10 </span>
+
+      <h2>🧮 Arithmetic Expression</h2>
+
+      <p>Perform calculations using a single arithmetic expression.</p>
+
+      <button onclick="showQ10()">Run Assignment</button>
+    </div>
+
+    <div class="card">
+      <span class="badge"> Q11 </span>
+
+      <h2>🎂 Age Calculator</h2>
+
+      <p>Calculate age using current year and birth year.</p>
+
+      <button onclick="showQ11()">Run Assignment</button>
+    </div>
+    <div class="card">
+      <span class="badge"> Q12 </span>
+
+      <h2>⭕ Geometrizer</h2>
+
+      <p>Calculate circle area and circumference.</p>
+
+      <button onclick="showQ12()">Run Assignment</button>
+    </div>
+    <div class="card">
+      <span class="badge"> Q13 </span>
+
+      <h2>🍪 Lifetime Supply</h2>
+
+      <p>Estimate lifetime snack requirements.</p>
+
+      <button onclick="showQ13()">Run Assignment</button>
+    </div>
+    <!-- Action Buttons -->
+
+    <div class="action-buttons">
+      <button onclick="copyResult()">📋 Copy Result</button>
+
+      <button onclick="clearResult()">🗑 Clear Result</button>
+    </div>
+
+    <!-- Result Section -->
+
+    <section class="result-section">
+      <h2>📋 Assignment Details & Output</h2>
+
+      <p class="result-info">
+        Every assignment displays the Question, Logic and Output.
+      </p>
+      <div id="result" class="result">Click any card to see the output...</div>
+    </section>
+
+    <!-- Multiplication Modal -->
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()"> &times; </span>
+
+        <h2>📊 Multiplication Table Generator</h2>
+
+        <p>Enter any number and instantly generate its multiplication table.</p>
+        <input type="number" id="number" placeholder="Enter Number" />
+
+        <button onclick="generateTable()">Generate</button>
+      </div>
+    </div>
+
+    <!-- Toast -->
+
+    <div id="toast"></div>
+
+    <section class="tips-card">
+      <h2>✨ Features Included</h2>
+
+      <ul>
+        <li>Dark / Light Mode</li>
+
+        <li>Progress Tracker</li>
+
+        <li>Toast Notifications</li>
+
+        <li>Copy Result Button</li>
+
+        <li>Responsive Design</li>
+
+        <li>Interactive Dashboard</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>JavaScript Chapter 5 Assignment Dashboard</p>
+
+      <p>Developed by Sidra Aslam 🚀</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
